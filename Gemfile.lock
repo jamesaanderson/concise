@@ -1,0 +1,21 @@
+PATH
+  remote: .
+  specs:
+    concise (0.0.1)
+      parslet
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    blankslate (2.1.2.4)
+    parslet (1.5.0)
+      blankslate (~> 2.0)
+    rake (10.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.3)
+  concise!
+  rake

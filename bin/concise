@@ -1,0 +1,7 @@
+#!/usr/bin/env rbx
+#
+# vim:filetype=ruby
+
+require 'concise'
+
+puts Concise::Compiler.new(ARGV.first).eval

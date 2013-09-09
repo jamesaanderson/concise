@@ -1,5 +1,7 @@
-require "concise/version"
+require 'parslet'
 
-module Concise
-  # Your code goes here...
-end
+require 'concise/version'
+require 'concise/parser'
+require 'concise/transformer'
+require 'concise/nodes'
+require 'concise/compiler'
