@@ -1,6 +1,6 @@
 # Concise
 
-**Concise** [adjective]: Giving a lot of information clearly and in a few words; brief but comprehensive.'
+**Concise** [adjective]: Giving a lot of information clearly and in a few words; brief but comprehensive.
 
 ## Status
 
