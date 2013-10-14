@@ -5,7 +5,7 @@ module Concise
     def initialize(filename)
       @filename  = filename
       @classname = File.basename(@filename, '.cn').capitalize
-      @outname   = File.basename(@filename, '.cn') + '.rbc'
+      @outname   = File.basename(@filename, '.cn') + '.cnc'
     end
 
     def compile
