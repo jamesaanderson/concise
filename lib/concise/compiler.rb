@@ -5,7 +5,7 @@ module Concise
     def initialize(filename)
       @filename  = filename
       @classname = File.basename(@filename, '.cn').capitalize
-      @outname   = File.basename(@filename, '.cn') + '.cnc'
+      @outname   = filename + 'c'
     end
 
     def compile
@@ -24,9 +24,7 @@ module Concise
     end
 
     def eval
-      unless File.exists?(outname)
-        compile
-      end
+      compile if !File.exists?(outname) || File.stat(outname).mtime < File.stat(filename).mtime
 
       loader = Rubinius::CodeLoader.new(outname)
       method = loader.load_compiled_file(outname, Rubinius::Signature, 18)
