@@ -24,7 +24,7 @@ module Concise
     end
 
     def eval
-      compile if !File.exists?(outname) || File.stat(outname).mtime < File.stat(filename).mtime
+      compile if recompile?
 
       loader = Rubinius::CodeLoader.new(outname)
       method = loader.load_compiled_file(outname, Rubinius::Signature, 18)
@@ -47,6 +47,10 @@ module Concise
 
     def make_class(name)
       Object.const_set(name.to_sym, Class.new)
+    end
+
+    def recompile?
+      !File.exists?(outname) || File.stat(outname).mtime < File.stat(filename).mtime
     end
   end
 end

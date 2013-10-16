@@ -9,4 +9,10 @@ describe Concise::Parser do
       expect(parser.integer).to parse('42')
     end
   end
+
+  context 'string' do
+    it 'reads a string' do
+      expect(parser.string).to parse('"Hello, World!"')
+    end
+  end
 end

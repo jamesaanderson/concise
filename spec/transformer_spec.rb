@@ -11,4 +11,13 @@ describe Concise::Transformer do
       expect(transformer.apply(input)).to eq(expected)
     end
   end
+
+  context 'string' do
+    it 'transforms a string' do
+      input = {:string => "Hello, World"}
+      expected = Concise::String.new("Hello, World")
+
+      expect(transformer.apply(input)).to eq(expected)
+    end
+  end
 end

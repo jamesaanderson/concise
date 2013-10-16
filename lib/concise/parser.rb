@@ -12,6 +12,19 @@ module Concise
       match('[-+]?[0-9]').repeat(1).as(:integer) >> space?
     end
 
-    root :integer
+    rule(:string) do
+      str('"') >> 
+      (
+        str('\\') >> any |
+        str('"').absent? >> any
+      ).repeat.as(:string) >> 
+      str('"') >> space?
+    end
+
+    rule(:expression) do
+      (integer | string).repeat
+    end
+
+    root :expression
   end
 end
