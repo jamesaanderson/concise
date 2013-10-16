@@ -4,4 +4,18 @@
 
 require 'concise'
 
-puts Concise::Compiler.new(ARGV.first).eval
+options = Rubinius::Options.new 'Usage: concise [options] [program]', 20
+
+options.on '-h', '--help', 'Display this help' do
+  puts options
+  exit 0
+end
+
+options.on '-v', '--version', 'Show version' do
+  puts "Concise #{Concise::VERSION}"
+  exit 0
+end
+
+options.parse(ARGV).each do |file|
+  puts Concise::Compiler.new(file).eval
+end
