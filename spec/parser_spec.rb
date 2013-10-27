@@ -15,4 +15,10 @@ describe Concise::Parser do
       expect(parser.string).to parse('"Hello, World!"')
     end
   end
+
+  context 'funcall' do
+    it 'reads a funcall' do
+      expect(parser.funcall).to parse('display "Hello, World!"')
+    end
+  end
 end
