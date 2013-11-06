@@ -17,5 +17,5 @@ options.on '-v', '--version', 'Show version' do
 end
 
 options.parse(ARGV).each do |file|
-  puts Concise::Compiler.new(file).eval
+  Concise::Compiler.new(file).eval
 end

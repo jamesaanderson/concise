@@ -12,12 +12,14 @@ module Concise
       tree = parse_source
       klass = make_class(classname)
 
-      method = klass.dynamic_method(:main) do |generator|
+      method = klass.dynamic_method(:main) do |g|
         tree.each do |e|
-          e.bytecode(generator)
+          e.bytecode(g)
         end
 
-        generator.ret
+        g.pop
+        g.push_true
+        g.ret
       end
 
       Rubinius::CompiledFile.dump(method, outname, Rubinius::Signature, 18)

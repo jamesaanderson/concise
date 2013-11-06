@@ -22,7 +22,7 @@ module Concise
     end
 
     rule(:name) do
-      match['A-Za-z_'].repeat(1).as(:name) >> space?
+      match['A-Za-z_'].repeat(1)
     end
 
     rule(:args) do
@@ -34,7 +34,7 @@ module Concise
     end
 
     rule(:funcall) do
-      name.as(:funcall) >> args
+      name.as(:funcall) >> space >> args
     end
 
     rule(:expression) do
