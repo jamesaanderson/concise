@@ -19,5 +19,9 @@ module Concise
     rule(string: simple(:str)) do
       AST::String.new(str.to_s)
     end
+
+    rule(boolean: simple(:bool)) do
+      AST::Boolean.new(bool)
+    end
   end
 end

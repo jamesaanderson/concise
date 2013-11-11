@@ -26,4 +26,12 @@ describe Concise::Transformer do
       expect(transformer.apply(input)).to be_kind_of(Concise::AST::Funcall)
     end
   end
+
+  context 'boolean' do
+    it 'transforms a boolean' do
+      input = {:boolean => "true"}
+
+      expect(transformer.apply(input)).to be_kind_of(Concise::AST::Boolean)
+    end
+  end
 end

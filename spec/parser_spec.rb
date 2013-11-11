@@ -21,4 +21,10 @@ describe Concise::Parser do
       expect(parser.funcall).to parse('display "Hello, World!"')
     end
   end
+
+  context 'boolean' do
+    it 'reads a boolean' do
+      expect(parser.boolean).to parse('true')
+    end
+  end
 end

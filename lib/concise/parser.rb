@@ -37,8 +37,12 @@ module Concise
       name.as(:funcall) >> space >> args
     end
 
+    rule(:boolean) do
+      (str('true') | str('false')).as(:boolean)
+    end
+
     rule(:expression) do
-      funcall | integer | string
+      funcall | integer | string | boolean
     end
 
     root :expression
