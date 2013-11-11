@@ -24,7 +24,13 @@ module Concise
       g.push_self
       args.each { |a| a.bytecode(g) }
       g.allow_private
-      g.send name.to_sym, args.length
+
+      case name
+      when 'display'
+        g.send :puts, args.length
+      else
+        g.send name.to_sym, args.length
+      end
     end
   end
 end
