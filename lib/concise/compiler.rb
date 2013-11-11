@@ -1,4 +1,4 @@
-module Concise 
+module Concise
   class Compiler
     attr_reader :filename, :classname, :outname
 
@@ -22,7 +22,7 @@ module Concise
         g.ret
       end
 
-      Rubinius::CompiledFile.dump(method, outname, Rubinius::Signature, 18)
+      Rubinius::ToolSet::Runtime::CompiledFile.dump(method, outname, Rubinius::Signature, 18)
     end
 
     def eval
