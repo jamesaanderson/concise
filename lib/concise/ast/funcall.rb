@@ -1,17 +1,4 @@
-module Concise
-  class Integer < Struct.new(:value)
-    def bytecode(g)
-      g.push_int value
-    end
-  end
-
-  class String < Struct.new(:value)
-    def bytecode(g)
-      g.push_literal value
-      g.string_dup
-    end
-  end
-
+module Concise::AST
   class Funcall
     attr_reader :name, :args
 

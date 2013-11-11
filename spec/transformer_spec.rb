@@ -7,7 +7,7 @@ describe Concise::Transformer do
     it 'transforms an integer' do
       input = {:integer => 42}
 
-      expect(transformer.apply(input)).to be_kind_of(Concise::Integer)
+      expect(transformer.apply(input)).to be_kind_of(Concise::AST::Integer)
     end
   end
 
@@ -15,7 +15,7 @@ describe Concise::Transformer do
     it 'transforms a string' do
       input = {:string => "Hello, World!"}
 
-      expect(transformer.apply(input)).to be_kind_of(Concise::String)
+      expect(transformer.apply(input)).to be_kind_of(Concise::AST::String)
     end
   end
 
@@ -23,7 +23,7 @@ describe Concise::Transformer do
     it 'transforms a funcall' do
       input = {:funcall=>"display", :args=>{:arg=>{:string=>"Hello, World!"}}}
 
-      expect(transformer.apply(input)).to be_kind_of(Concise::Funcall)
+      expect(transformer.apply(input)).to be_kind_of(Concise::AST::Funcall)
     end
   end
 end
