@@ -1,4 +1,3 @@
-require 'concise/ast/integer'
-require 'concise/ast/string'
-require 'concise/ast/funcall'
-require 'concise/ast/boolean'
+Gem.find_files('concise/ast/*').each do |file|
+  require file
+end
