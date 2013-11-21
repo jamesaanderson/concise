@@ -38,7 +38,7 @@ module Concise
     end
 
     rule(:boolean) do
-      (str('true') | str('false')).as(:boolean)
+      (str('true') | str('false')).as(:boolean) >> space?
     end
 
     rule(:expression) do
