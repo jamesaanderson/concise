@@ -7,6 +7,8 @@ describe Concise::Parser do
   context 'integer' do
     it 'reads an integer' do
       expect(parser.integer).to parse('42')
+      expect(parser.integer).to parse('-42')
+      expect(parser.integer).to_not parse('3.14')
     end
   end
 
@@ -25,6 +27,8 @@ describe Concise::Parser do
   context 'boolean' do
     it 'reads a boolean' do
       expect(parser.boolean).to parse('true')
+      expect(parser.boolean).to parse('false')
+      expect(parser.boolean).to_not parse('truefalse')
     end
   end
 end

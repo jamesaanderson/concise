@@ -1,11 +1,12 @@
 module Concise
   class Parser < Parslet::Parser
     rule(:space) do
-      match('\s').repeat(1)
+      match[" \t\r\n"].repeat(1) |
+      str('#') >> match["^\r\n"].repeat
     end
 
     rule(:space?) do
-      space.maybe
+      space.repeat
     end
 
     rule(:integer) do
@@ -34,7 +35,7 @@ module Concise
     end
 
     rule(:funcall) do
-      name.as(:funcall) >> space >> args
+      name.as(:funcall) >> space >> args >> space?
     end
 
     rule(:boolean) do
@@ -42,7 +43,7 @@ module Concise
     end
 
     rule(:expression) do
-      funcall | integer | string | boolean
+      space? >> (funcall | integer | string | boolean)
     end
 
     root :expression
