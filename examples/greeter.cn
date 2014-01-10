@@ -2,4 +2,4 @@ Greeter = (name) ->
   greet = -> display "Hello, #{name}"
 
 g = new Greeter "World!"
-g.greet # => Hello, World!
+g.greet #=> Hello, World!
