@@ -1,0 +1,9 @@
+Inventory = (items={}) ->
+  add_item = (name) ->
+    if items[name]
+      items[name] += 1
+    else
+      items[name] = 1
+
+inv = new Inventory {"t-shirt", "sneakers"}
+inv.add_item "pants"
