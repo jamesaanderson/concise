@@ -16,6 +16,10 @@ options.on '-v', '--version', 'Show version' do
   exit 0
 end
 
+options.on '-c', 'FILE', 'Compile file' do |file|
+  Concise::Compiler.compile_file file
+end
+
 options.parse(ARGV).each do |file|
   Concise::CodeLoader.execute_file file
 end
