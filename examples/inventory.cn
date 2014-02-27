@@ -5,5 +5,5 @@ Inventory = (items={}) ->
     else
       items[name] = 1
 
-inv = new Inventory {"t-shirt", "sneakers"}
+inv = Inventory.new {"t-shirt": 3, "sneakers": 2}
 inv.add_item "pants"
