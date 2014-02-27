@@ -1,5 +1,4 @@
-Greeter = (name) ->
-  greet = -> display "Hello, #{name}"
+Greeter = ->
+  greet = (name) => display "Hello, #{name}"
 
-g = new Greeter "World!"
-g.greet #=> Hello, World!
+Greeter.greet "World!" # => Hello, World!
