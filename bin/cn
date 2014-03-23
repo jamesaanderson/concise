@@ -24,6 +24,16 @@ options.on '-e', 'CODE', 'Compile code' do |code|
   Concise::CodeLoader.execute_code code
 end
 
-options.parse(ARGV).each do |file|
-  Concise::CodeLoader.execute_file file
+if ARGV.empty?
+  require 'readline'
+
+  loop do
+    code = Readline.readline 'cn> '
+    exit 0 unless code and code != 'exit'
+    Concise::CodeLoader.execute_code code
+  end
+else
+  options.parse(ARGV).each do |file|
+    Concise::CodeLoader.execute_file file
+  end
 end
