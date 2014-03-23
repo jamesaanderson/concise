@@ -49,7 +49,7 @@ module Concise
       parser = compiler.parser
 
       parser.input code, file, line
-      compiler.generator.root = Rubinius::AST::EvalExpression
+      compiler.generator.root = RBX::AST::EvalExpression
       compiler.generator.variable_scope = variable_scope
 
       parser.print = print

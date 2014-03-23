@@ -20,6 +20,10 @@ options.on '-c', 'FILE', 'Compile file' do |file|
   Concise::Compiler.compile_file file
 end
 
+options.on '-e', 'CODE', 'Compile code' do |code|
+  Concise::CodeLoader.execute_code code
+end
+
 options.parse(ARGV).each do |file|
   Concise::CodeLoader.execute_file file
 end
