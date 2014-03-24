@@ -75,6 +75,5 @@ module Concise
         @asm
       end
     end
-
   end
 end

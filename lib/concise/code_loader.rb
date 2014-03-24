@@ -1,6 +1,5 @@
 module Concise
   class CodeLoader < Rubinius::CodeLoader
-
     def self.execute_code(code, print = Compiler::Print.new)
       cm = Compiler.compile_for_eval(code, binding.variables,
                                      "(eval)", 1, print)

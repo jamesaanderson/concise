@@ -1,8 +1,6 @@
 require 'pp'
 module Concise
   class Stage
-
-    
     # This stage takes a tree of Concise::AST nodes and
     # simply calls the bytecode method on them.
     class Generator < RBX::Compiler::Stage
@@ -23,7 +21,7 @@ module Concise
 
         # ENVIRONMENT INITIALIZATION
         # --------------------------
-        
+
         # Initialize the heap as a one-cell array containing zero,
         # and the pointer as a zero integer.
         @output.meta_push_0
@@ -54,7 +52,7 @@ module Concise
         # end Print
 
         bottom.set!
-      
+
         @output.use_detected
         # Return the heap
         @output.push_local 0
@@ -63,7 +61,6 @@ module Concise
 
         run_next
       end
-
     end
 
     # AST trasnformation for evaling source string.
@@ -140,7 +137,6 @@ module Concise
     # This stage takes a concise filename and produces a ruby array
     # containing representation of the concise source.
     class CnFile < RBX::Compiler::Stage
-
       stage :concise_file
       next_stage CnAST
       attr_reader :filename, :line
@@ -164,6 +160,5 @@ module Concise
         run_next
       end
     end
-
   end
 end
