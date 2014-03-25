@@ -10,7 +10,7 @@ module Concise
     end
 
     rule(:integer) do
-      match('[-+]?[0-9]').repeat(1).as(:integer) >> space?
+      match('[-+]?[0-9]').repeat(1).as(:integer)
     end
 
     rule(:string) do
@@ -19,7 +19,7 @@ module Concise
         str('\\') >> any |
         str('"').absent? >> any
       ).repeat.as(:string) >>
-      str('"') >> space?
+      str('"')
     end
 
     rule(:name) do
@@ -27,25 +27,29 @@ module Concise
     end
 
     rule(:args) do
-      (expression.as(:arg) >> (comma >> expression.as(:arg).repeat).maybe).as(:args)
+      (expression.as(:arg) >> (comma >> expression.as(:arg).repeat).maybe).repeat.as(:args)
     end
 
     rule(:comma) do
-      str(',') >> space?
+      space? >> str(',') >> space?
     end
 
     rule(:funcall) do
-      name.as(:funcall) >> space >> args >> space?
+      name.as(:funcall) >> space >> args
     end
 
     rule(:boolean) do
-      (str('true') | str('false')).as(:boolean) >> space?
+      (str('true') | str('false')).as(:boolean)
     end
 
     rule(:expression) do
-      space? >> (funcall | integer | string | boolean)
+      funcall | integer | string | boolean
     end
 
-    root :expression
+    rule(:expressions) do
+      (expression >> space?).repeat(1)
+    end
+
+    root :expressions
   end
 end

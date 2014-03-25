@@ -38,7 +38,6 @@ module Concise
 
       begin
         compiler.run
-
       rescue Exception => e
         compiler_error "Error trying to compile concise: #{file}", e
       end

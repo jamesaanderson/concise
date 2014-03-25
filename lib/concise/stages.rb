@@ -29,7 +29,9 @@ module Concise
         @output.cast_array
         @output.set_local 0
 
-        @input.bytecode @output
+        @input.each do |i|
+          i.bytecode @output
+        end
 
         bottom = @output.new_label
 
