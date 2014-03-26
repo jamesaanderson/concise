@@ -31,4 +31,10 @@ describe Concise::Parser do
       expect(parser.boolean).to_not parse('truefalse')
     end
   end
+
+  context 'null' do
+    it 'reads null' do
+      expect(parser.null).to parse('null')
+    end
+  end
 end

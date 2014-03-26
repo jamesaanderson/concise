@@ -34,4 +34,12 @@ describe Concise::Transformer do
       expect(transformer.apply(input)).to be_kind_of(Concise::AST::Boolean)
     end
   end
+
+  context 'null' do
+    it 'transforms null' do
+      input = {:null => "null"}
+
+      expect(transformer.apply(input)).to be_kind_of(Concise::AST::Null)
+    end
+  end
 end
