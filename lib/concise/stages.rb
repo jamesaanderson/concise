@@ -111,7 +111,6 @@ module Concise
     # We are currently using python's own parser, so we just
     # read the sexp as its printed by bin/astpretty.py
     class CnCode < RBX::Compiler::Stage
-
       stage :concise_code
       next_stage CnAST
       attr_reader :filename, :line

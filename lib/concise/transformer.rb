@@ -23,5 +23,9 @@ module Concise
     rule(boolean: simple(:bool)) do
       AST::Boolean.new(bool)
     end
+
+    rule(null: simple(:null)) do
+      AST::Null.new(null)
+    end
   end
 end

@@ -42,8 +42,12 @@ module Concise
       (str('true') | str('false')).as(:boolean)
     end
 
+    rule(:null) do
+      str('null').as(:null)
+    end
+
     rule(:expression) do
-      funcall | integer | string | boolean
+      funcall | integer | string | boolean | null
     end
 
     rule(:expressions) do
