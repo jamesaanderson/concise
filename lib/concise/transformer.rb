@@ -25,7 +25,7 @@ module Concise
     end
 
     rule(null: simple(:null)) do
-      AST::Null.new(null)
+      AST::Null.new
     end
   end
 end

@@ -1,5 +1,5 @@
 module Concise::AST
-  class Null < Struct.new(:value)
+  class Null
     def bytecode(g)
       g.push_nil
     end
