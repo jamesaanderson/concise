@@ -29,9 +29,11 @@ describe Concise::Transformer do
 
   context 'boolean' do
     it 'transforms a boolean' do
-      input = {:boolean => "true"}
+      t = {:boolean => "true"}
+      f = {:boolean => "false"}
 
-      expect(transformer.apply(input)).to be_kind_of(Concise::AST::Boolean)
+      expect(transformer.apply(t)).to be_kind_of(Concise::AST::Boolean::True)
+      expect(transformer.apply(f)).to be_kind_of(Concise::AST::Boolean::False)
     end
   end
 

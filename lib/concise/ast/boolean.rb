@@ -1,10 +1,13 @@
 module Concise::AST
-  class Boolean < Struct.new(:value)
-    def bytecode(g)
-      case value
-      when 'true'
+  class Boolean
+    class True
+      def bytecode(g)
         g.push_true
-      when 'false'
+      end
+    end
+
+    class False
+      def bytecode(g)
         g.push_false
       end
     end

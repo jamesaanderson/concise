@@ -21,7 +21,12 @@ module Concise
     end
 
     rule(boolean: simple(:bool)) do
-      AST::Boolean.new(bool)
+      case bool
+      when 'true'
+        AST::Boolean::True.new
+      when 'false'
+        AST::Boolean::False.new
+      end
     end
 
     rule(null: simple(:null)) do
