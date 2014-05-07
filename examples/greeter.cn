@@ -1,4 +1,4 @@
 Greeter = ->
-  greet = (name) => display "Hello, #{name}"
+  greet = (name) => disp "Hello, #{name}"
 
 Greeter.greet "World!" # => Hello, World!

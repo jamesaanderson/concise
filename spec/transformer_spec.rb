@@ -21,7 +21,7 @@ describe Concise::Transformer do
 
   context 'funcall' do
     it 'transforms a funcall' do
-      input = {:funcall=>"display", :args=>{:arg=>{:string=>"Hello, World!"}}}
+      input = {:funcall=>"disp", :args=>{:arg=>{:string=>"Hello, World!"}}}
 
       expect(transformer.apply(input)).to be_kind_of(Concise::AST::Funcall)
     end

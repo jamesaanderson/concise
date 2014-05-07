@@ -13,7 +13,7 @@ module Concise::AST
       g.allow_private
 
       case name
-      when 'display'
+      when 'disp'
         g.send :puts, args.length
       else
         g.send name.to_sym, args.length

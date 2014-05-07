@@ -4,4 +4,4 @@ fib = (n) ->
   else
     fib n-1 + fib n-2
 
-5.times -> display fib _
+5.times -> disp fib _

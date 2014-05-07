@@ -1,1 +1,1 @@
-display "Hello, World!" #=> Hello, World!
+disp "Hello, World!" #=> Hello, World!

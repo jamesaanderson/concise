@@ -20,7 +20,7 @@ describe Concise::Parser do
 
   context 'funcall' do
     it 'reads a funcall' do
-      expect(parser.funcall).to parse('display "Hello, World!"')
+      expect(parser.funcall).to parse('disp "Hello, World!"')
     end
   end
 
