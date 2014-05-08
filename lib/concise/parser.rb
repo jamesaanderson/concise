@@ -1,8 +1,10 @@
 module Concise
   class Parser < Parslet::Parser
+    alias_method :`, :str
+
     rule(:space) do
       match[" \t\r\n"].repeat(1) |
-      str('#') >> match["^\r\n"].repeat
+      `#` >> match["^\r\n"].repeat
     end
 
     rule(:space?) do
@@ -14,12 +16,12 @@ module Concise
     end
 
     rule(:string) do
-      str('"') >>
+      `"` >>
       (
-        str('\\') >> any |
-        str('"').absent? >> any
+        `\\` >> any |
+        `"`.absent? >> any
       ).repeat.as(:string) >>
-      str('"')
+      `"`
     end
 
     rule(:name) do
@@ -27,11 +29,11 @@ module Concise
     end
 
     rule(:args) do
-      (expression.as(:arg) >> (comma >> expression.as(:arg).repeat).maybe).repeat.as(:args)
+      (expression.as(:arg) >> (comma >> expression.as(:arg)).repeat).as(:args)
     end
 
     rule(:comma) do
-      space? >> str(',') >> space?
+      space? >> `,` >> space?
     end
 
     rule(:funcall) do
@@ -39,11 +41,11 @@ module Concise
     end
 
     rule(:boolean) do
-      (str('true') | str('false')).as(:boolean)
+      (`true` | `false`).as(:boolean)
     end
 
     rule(:null) do
-      str('null').as(:null)
+      `null`.as(:null)
     end
 
     rule(:expression) do
